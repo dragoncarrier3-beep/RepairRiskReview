@@ -143,19 +143,22 @@ export default function ReportPage() {
   const maxCost = 7900;
 
   return (
-    <div className="min-h-screen bg-[#eef2f7]">
+    <div className="min-h-screen bg-[#e8eef6]">
       <div className="no-print">
         <SiteHeader />
       </div>
 
       <div className="mx-auto flex max-w-7xl gap-6 px-4 py-6 lg:px-6">
         {/* Sidebar */}
-        <aside className="no-print hidden w-56 shrink-0 lg:block">
-          <div className="card sticky top-6 p-4">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Report sections
-            </p>
-            <nav className="space-y-1 text-sm">
+        <aside className="no-print hidden w-60 shrink-0 lg:block">
+          <div className="card sticky top-24 overflow-hidden p-0">
+            <div className="border-b border-slate-100 bg-[#071428] px-4 py-4 text-white">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-blue-200/80">
+                Report navigation
+              </p>
+              <p className="mt-1 font-display text-sm font-bold">Your Review</p>
+            </div>
+            <nav className="space-y-0.5 p-2 text-sm">
               {[
                 ["summary", "Executive Summary"],
                 ["analysis", "Vehicle Analysis"],
@@ -170,33 +173,35 @@ export default function ReportPage() {
                     setSection(key);
                     document.getElementById(key)?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className={`block w-full rounded-md px-3 py-2 text-left ${
+                  className={`block w-full rounded-xl px-3 py-2.5 text-left font-semibold transition ${
                     section === key
-                      ? "bg-navy-900 text-white"
-                      : "text-slate-700 hover:bg-slate-100"
+                      ? "bg-[#071428] text-white"
+                      : "text-slate-600 hover:bg-slate-100"
                   }`}
                 >
                   {label}
                 </button>
               ))}
             </nav>
-            <button
-              type="button"
-              onClick={handlePdf}
-              disabled={pdfBusy}
-              className="btn-primary mt-4 w-full gap-2"
-            >
-              <Download className="h-4 w-4" />
-              {pdfBusy ? "Preparing…" : "Download PDF"}
-            </button>
-            <button
-              type="button"
-              onClick={() => window.print()}
-              className="btn-secondary mt-2 w-full gap-2"
-            >
-              <Printer className="h-4 w-4" />
-              Print
-            </button>
+            <div className="space-y-2 border-t border-slate-100 p-3">
+              <button
+                type="button"
+                onClick={handlePdf}
+                disabled={pdfBusy}
+                className="btn-primary w-full gap-2"
+              >
+                <Download className="h-4 w-4" />
+                {pdfBusy ? "Preparing…" : "Download PDF"}
+              </button>
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="btn-secondary w-full gap-2"
+              >
+                <Printer className="h-4 w-4" />
+                Print
+              </button>
+            </div>
           </div>
         </aside>
 
@@ -214,16 +219,23 @@ export default function ReportPage() {
 
           {/* Header card */}
           <section className="card overflow-hidden">
-            <div className="flex flex-wrap items-center justify-between gap-3 bg-navy-900 px-5 py-4 text-white">
-              <div>
-                <div className="text-lg font-bold tracking-wide">REPAIR RISK REVIEW</div>
-                <div className="text-[11px] uppercase tracking-[0.14em] text-blue-200">
-                  Powered by My Road Armor
+            <div className="flex flex-wrap items-center justify-between gap-3 bg-[#071428] px-5 py-5 text-white sm:px-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#1a66d1] to-[#0d3f8a] text-xs font-extrabold">
+                  RR
+                </span>
+                <div>
+                  <div className="font-display text-lg font-extrabold tracking-wide">
+                    REPAIR RISK REVIEW
+                  </div>
+                  <div className="text-[11px] uppercase tracking-[0.14em] text-blue-200">
+                    Powered by My Road Armor
+                  </div>
                 </div>
               </div>
               <div className="text-right text-sm text-blue-100">
-                <div>{reportDate}</div>
-                <div className="font-mono text-xs">Report ID: {report.reportId}</div>
+                <div className="font-medium">{reportDate}</div>
+                <div className="font-mono text-xs text-blue-200/80">Report ID: {report.reportId}</div>
               </div>
             </div>
 

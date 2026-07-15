@@ -11,8 +11,6 @@ build/
 .netlify/
 
 # Environment (keep .env.example and .env.netlify)
-.env
-.env.local
 .env.*.local
 
 # Logs & OS
@@ -22,7 +20,6 @@ npm-debug.log*
 Thumbs.db
 
 # Debug / IDE
-.vscode/
 .idea/
 *.swp
 *.pem
@@ -30,3 +27,4 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+config.bat

@@ -30,8 +30,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-source-sans)", "Segoe UI", "sans-serif"],
-        display: ["var(--font-source-sans)", "Segoe UI", "sans-serif"],
+        sans: ["var(--font-body)", "Segoe UI", "sans-serif"],
+        display: ["var(--font-display)", "Segoe UI", "sans-serif"],
       },
       boxShadow: {
         card: "0 1px 3px rgba(10,28,62,0.08), 0 4px 16px rgba(10,28,62,0.06)",

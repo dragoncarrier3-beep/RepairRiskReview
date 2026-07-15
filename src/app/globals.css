@@ -1,13 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-source-sans: "Source Sans 3", "Segoe UI", sans-serif;
-  --navy: #0a1c3e;
-  --brand-blue: #1a5bb8;
+  --font-display: "DM Sans", "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+  --navy: #071428;
+  --navy-mid: #0c2348;
+  --brand-blue: #1a66d1;
+  --surface: #f0f4f9;
+  --ink: #0b1a33;
 }
 
 html {
@@ -15,28 +19,77 @@ html {
 }
 
 body {
-  font-family: var(--font-source-sans);
-  color: #0a1c3e;
-  background: #f4f7fb;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--surface);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
 }
 
 @layer components {
   .card {
-    @apply rounded-xl border border-slate-200/80 bg-white shadow-card;
+    @apply rounded-2xl border border-slate-200/70 bg-white shadow-[0_1px_2px_rgba(7,20,40,0.04),0_12px_32px_-8px_rgba(7,20,40,0.12)];
   }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-60;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#1a66d1] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_8px_20px_-6px_rgba(26,102,209,0.55)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#1557b5] hover:shadow-[0_12px_28px_-6px_rgba(26,102,209,0.65)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0;
   }
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-navy-900 transition hover:bg-slate-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300/90 bg-white px-5 py-3 text-[15px] font-semibold text-navy-900 transition hover:border-slate-400 hover:bg-slate-50;
   }
+
   .input {
-    @apply w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-navy-900 outline-none ring-brand-blue/30 placeholder:text-slate-400 focus:border-brand-blue focus:ring-2;
+    @apply w-full rounded-xl border border-slate-300/90 bg-white px-4 py-3 text-[15px] text-navy-900 outline-none transition placeholder:text-slate-400 focus:border-[#1a66d1] focus:shadow-[0_0_0_4px_rgba(26,102,209,0.12)];
   }
+
   .label {
-    @apply mb-1.5 block text-sm font-medium text-navy-800;
+    @apply mb-2 block text-[13px] font-semibold tracking-wide text-slate-600;
   }
+
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-blue-200;
+  }
+
+  .surface-mesh {
+    background-color: #071428;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(26, 102, 209, 0.35), transparent 55%),
+      radial-gradient(ellipse 60% 50% at 90% 10%, rgba(255, 255, 255, 0.08), transparent 45%),
+      linear-gradient(160deg, #050e1c 0%, #0c2348 48%, #0a1a38 100%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.55s ease-out both;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.08s;
+}
+.animate-delay-2 {
+  animation-delay: 0.16s;
+}
+.animate-delay-3 {
+  animation-delay: 0.24s;
 }
 
 @media print {
