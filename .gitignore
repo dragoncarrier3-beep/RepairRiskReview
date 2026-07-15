@@ -1,0 +1,32 @@
+# Dependencies — never upload / commit
+node_modules/
+
+# Next.js build output
+.next/
+out/
+dist/
+build/
+
+# Netlify
+.netlify/
+
+# Environment (keep .env.example and .env.netlify)
+.env
+.env.local
+.env.*.local
+
+# Logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Debug / IDE
+.vscode/
+.idea/
+*.swp
+*.pem
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

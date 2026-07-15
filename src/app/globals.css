@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-source-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --navy: #0a1c3e;
+  --brand-blue: #1a5bb8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-source-sans);
+  color: #0a1c3e;
+  background: #f4f7fb;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-200/80 bg-white shadow-card;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-brand-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-navy-900 transition hover:bg-slate-50;
+  }
+  .input {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-navy-900 outline-none ring-brand-blue/30 placeholder:text-slate-400 focus:border-brand-blue focus:ring-2;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-navy-800;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-break {
+    break-before: page;
+  }
+  body {
+    background: white;
+  }
+}

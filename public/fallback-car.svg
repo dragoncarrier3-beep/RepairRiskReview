@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1c3e"/>
+      <stop offset="100%" stop-color="#1a5bb8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#g)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="3">
+    <path d="M180 430h840l70 40v50H110v-50l70-40z"/>
+    <path d="M260 430l90-110h420l110 110"/>
+    <circle cx="320" cy="500" r="48"/>
+    <circle cx="880" cy="500" r="48"/>
+  </g>
+  <text x="600" y="250" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial" font-size="42" font-weight="700">Vehicle Image Unavailable</text>
+  <text x="600" y="300" text-anchor="middle" fill="#bfdbfe" font-family="Segoe UI, Arial" font-size="20">Using fallback placeholder</text>
+</svg>

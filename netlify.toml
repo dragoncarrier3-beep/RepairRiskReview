@@ -1,0 +1,18 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NEXT_TELEMETRY_DISABLED = "1"
+  SEED_ADMIN_EMAIL = "admin@repairriskreview.com"
+  NEXT_PUBLIC_APP_NAME = "Repair Risk Review"
+  NEXT_PUBLIC_BRAND_NAME = "My Road Armor"
+  NEXT_PUBLIC_DEMO_VIN = "3GNAXUEV3L6123456"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["data/**"]
